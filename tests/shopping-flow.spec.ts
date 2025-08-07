@@ -39,14 +39,9 @@ test.describe("End-to-End User Journey", () => {
     expect(contactInfo).toContain(registerCredentials.valid.email);
 
     // Log out before testing login functionality
-    await page
-      .locator(
-        '.header.links button.action.switch[data-action="customer-menu-toggle"]'
-      )
-      .first()
-      .click();
+    await page.getByRole('button', {name: 'change'}).click(); 
 
-    await page.locator('a[href*="/customer/account/logout/"]').first().click();
+    await page.getByRole('link', {name: 'Sign Out'}).click();
 
     // Navigate to login page
     await page.goto("/customer/account/login/");
@@ -83,7 +78,7 @@ test.describe("End-to-End User Journey", () => {
     await productPage.addToCart();
 
     const isAdded = await productPage.isProductAddedToCart();
-    expect(isAdded).toBe(false);
+    expect(isAdded).toBeFalsy();
 
     // add product to cart with valid selections
     const initialCartCount = await productPage.getCartCount();
@@ -96,7 +91,7 @@ test.describe("End-to-End User Journey", () => {
     );
 
     const isProductAdded = await productPage.isProductAddedToCart();
-    expect(isProductAdded).toBe(true);
+    expect(isProductAdded).toBeTruthy();
 
     const successMessage = await productPage.getSuccessMessage();
     expect(successMessage).toContain(
