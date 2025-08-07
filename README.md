@@ -15,17 +15,11 @@ This testing suite covers critical user journeys including:
 
 ```
 tests/
-├── fixtures/
-│   ├── loginFixtures.ts      # Login test data and page fixtures
-│   ├── registerFixtures.ts   # Registration test data and fixtures
-│   └── productFixtures.ts    # Product/shopping test data
 ├── pages/
 │   ├── LoginPage.ts          # Login page object model
 │   ├── RegisterPage.ts       # Registration page object model
 │   └── ProductPage.ts        # Product/shopping page object model
-├── login.spec.ts             # Login functionality tests
-├── register.spec.ts          # Registration functionality tests
-└── product.spec.ts           # Product navigation and cart tests
+├── shopping-flow.spec.ts             # shopping-flow functionality tests
 ```
 
 ## 🏗️ Key Architectural Patterns
