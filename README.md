@@ -19,6 +19,8 @@ tests/
 │   ├── LoginPage.ts          # Login page object model
 │   ├── RegisterPage.ts       # Registration page object model
 │   └── ProductPage.ts        # Product/shopping page object model
+├── utils/
+│   ├── data.ts               # Test data management
 ├── shopping-flow.spec.ts             # shopping-flow functionality tests
 ```
 
