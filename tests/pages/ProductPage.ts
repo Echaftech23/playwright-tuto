@@ -44,14 +44,6 @@ export class ProductPage {
   }
 
   /**
-   * Navigate to the homepage
-   */
-  async goto() {
-    await this.page.goto("https://magento.softwaretestingboard.com/");
-    await this.consent.first().click({ timeout: 3000 });
-  }
-
-  /**
    * Navigate to Men > Tops > Jackets category
    */
   async navigateToMenJackets() {

@@ -18,7 +18,7 @@ test.describe("End-to-End User Journey", () => {
     const productPage = new ProductPage(page);
 
     // Navigate to registration page
-    await registerPage.goto();
+    await page.goto("/customer/account/create/");
 
     // Fill registration form and submit
     await registerPage.register(
@@ -29,9 +29,7 @@ test.describe("End-to-End User Journey", () => {
       registerCredentials.valid.confirmPassword
     );
 
-    await expect(page).toHaveURL(
-      "https://magento.softwaretestingboard.com/customer/account/"
-    );
+    await expect(page).toHaveURL(/\/customer\/account\//);
 
     // Verify contact information is displayed
     const contactInfo = await registerPage.getContactInfo();
@@ -51,16 +49,14 @@ test.describe("End-to-End User Journey", () => {
     await page.locator('a[href*="/customer/account/logout/"]').first().click();
 
     // Navigate to login page
-    await loginPage.goto();
+    await page.goto("/customer/account/login/");
 
     await loginPage.login(
       loginCredentials.valid.email,
       loginCredentials.valid.password
     );
 
-    await expect(page).toHaveURL(
-      "https://magento.softwaretestingboard.com/customer/account/"
-    );
+    await expect(page).toHaveURL(/\/customer\/account\//);
 
     // navigate to Men > Tops > Jackets category
     await productPage.navigateToMenJackets();

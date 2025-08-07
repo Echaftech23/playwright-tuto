@@ -26,16 +26,6 @@ export class LoginPage {
   }
 
   /**
-   * Navigate to the login page
-   */
-  async goto() {
-    await this.page.goto(
-      "https://magento.softwaretestingboard.com/customer/account/login/"
-    );
-    // await this.consent.first().click();
-  }
-
-  /**
    * Perform login with email and password
    * @param email - User email address
    * @param password - User password

@@ -42,16 +42,6 @@ export class RegisterPage {
   }
 
   /**
-   * Navigate to the register page
-   */
-  async goto() {
-    await this.page.goto(
-      "https://magento.softwaretestingboard.com/customer/account/create/"
-    );
-    // await this.consent.first().click();
-  }
-
-  /**
    * Perform registration with all required fields
    * @param firstName - User first name
    * @param lastName - User last name

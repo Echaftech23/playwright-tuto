@@ -43,29 +43,13 @@ export class LoginPage {
 }
 ```
 
-### Fixture Pattern
-
-- **Test Isolation**: Each test gets fresh page instances
-- **Setup Automation**: Automatic navigation and initialization
-- **Data Management**: Centralized test credentials and configurations
-
-```typescript
-export const test = base.extend<LoginFixtures>({
-  loginPage: async ({ page }, use) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.goto();
-    await use(loginPage);
-  },
-});
-```
-
 ## 🎯 Testing Scenarios Covered
 
 ### Authentication Tests
 
-- ✅ **Login Validation**: Empty fields, invalid formats, wrong credentials
+- ✅ **Login Flow**:  Complete login with validation
 - ✅ **Registration Flow**: Complete registration with validation
-- ✅ **Success Verification**: Profile information display after login/registration
+- ✅ **Success Verification**: Profile information display after registration
 - ✅ **Error Handling**: Specific error messages for different failure cases
 
 ### Product & Shopping Tests
@@ -131,16 +115,6 @@ email: "john.doe." + Date.now() + "@example.com";
 
 // Reuses existing data for specific scenarios
 existingEmail: "zurid@mailinator.com"; // For duplicate email testing
-```
-
-#### Flexible Assertions
-
-```typescript
-// Regex patterns for flexible error message matching
-expect(confirmPasswordError).toMatch(/Please enter the same value again./i);
-expect(passwordError).toMatch(
-  /Minimum length of this field must be equal or greater than 8 symbols/i
-);
 ```
 
 ## 🔍 Best Practices Discovered
@@ -290,7 +264,7 @@ npx playwright show-report
 
 ✅ **Comprehensive Test Coverage**: Login, Registration, Product Navigation, Shopping Cart  
 ✅ **Robust Error Handling**: Dynamic content, fallback strategies, precise locators  
-✅ **Modern Architecture**: Page Object Model, Fixtures, TypeScript  
+✅ **Modern Architecture**: Page Object Model, TypeScript  
 ✅ **Best Practices**: Smart waiting, data management, maintainable code  
 ✅ **Real-world Scenarios**: E-commerce workflow simulation
 
